@@ -7,7 +7,7 @@ class Node(object):
 class LinkedList(object):
 
     def __init__(self):
-        self.head: Node = None
+        self.head: Node
         self.size = 0
 
     # time complexity = O(1)
@@ -43,6 +43,30 @@ class LinkedList(object):
             print("{} - ".format(actual_node.data))
             actual_node = actual_node.next_node
 
+    def remove(self, data):
+        if self.head is None:
+            return None
+
+        self.size = self.size - 1
+        current_node = self.head
+        previous_node = None
+        is_node_found = False
+
+        while current_node.data != data:
+            previous_node = current_node
+            current_node = current_node.next_node
+            if current_node.data == data:
+                is_node_found = True
+
+        if is_node_found:
+            self.size = self.size - 1
+            if previous_node is None:
+                self.head = current_node.next_node
+            else:
+                previous_node.next_node = current_node.next_node
+            return 'Node deleted'
+        else:
+            return None
 
 
 
