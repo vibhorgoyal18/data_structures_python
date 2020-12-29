@@ -1,17 +1,17 @@
 class Stack:
     def __init__(self):
-        self.queue = []
+        self.stack = []
 
     def is_empty(self):
-        return self.queue == []
+        return self.stack == []
 
-    def enqueue(self, data):
-        self.queue.append(data)
+    def push(self, data):
+        self.stack.append(data)
 
     def pop(self):
-        data = self.queue[0]
-        del self.queue[0]
+        data = self.stack[-1]
+        del self.stack[-1]
         return data
 
     def peek(self):
-        return self.queue[0]
+        return self.stack[-1]

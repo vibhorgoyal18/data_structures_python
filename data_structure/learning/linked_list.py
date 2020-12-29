@@ -43,6 +43,7 @@ class LinkedList(object):
             print("{} - ".format(actual_node.data))
             actual_node = actual_node.next_node
 
+    # time complexity = O(1)
     def remove(self, data):
         if self.head is None:
             return None
